@@ -681,10 +681,23 @@ Movieーーーーーー */
 
 
 /* ===== Vision (Mobile First) ===== */
-.reveal > * {
-  opacity: 0;
-  transform: translateY(24px);
+/* デフォルトは見える（iPhoneでも消えない） */
+.reveal > *{
+  opacity: 1;
+  transform: none;
 }
+
+/* view-timeline対応ブラウザだけ、スクロール演出を有効化 */
+@supports (animation-timeline: view()) {
+  .reveal > *{
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 40%;
+  }
+}
+
 
 @supports (animation-timeline: view()) {
 
