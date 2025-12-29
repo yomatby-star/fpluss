@@ -1,0 +1,57 @@
+/* ==========================
+   reset.css
+   ========================== */
+
+/* 全要素の余白とボックスモデルを統一 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML / body */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* リストのスタイルを削除 */
+ul, ol {
+  list-style: none;
+}
+
+/* リンクの初期装飾を削除 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 画像・動画のはみ出し防止 */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ボタン・フォーム系のリセット */
+button, input, textarea, select {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+/* 見出しのリセット */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

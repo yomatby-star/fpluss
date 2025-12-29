@@ -1,0 +1,64 @@
+/* ==========================
+   base.css
+   ========================== */
+
+/* ルート変数 */
+:root {
+  /* --color-bg: #19121cb9; */
+  --color-bg: #58535A;
+  --color-text: #fff;
+  --color-accent: #00ffcc;
+
+  --font-main: "Helvetica Neue", Arial, sans-serif;
+
+  --line-height-base: 1.7;
+}
+
+/* body 基本設定 */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: var(--line-height-base);
+  letter-spacing: 0.04em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 共通テキスト */
+p {
+  font-size: 16px;
+}
+
+/* 見出し（あとで上書き前提） */
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* セクション余白 */
+section {
+  padding: 120px 80px;
+}
+
+/* PC / SP切り替え用（あとで拡張） */
+@media (max-width: 768px) {
+  section {
+    padding: 80px 24px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}

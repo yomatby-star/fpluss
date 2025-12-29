@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/reset.css">
+  <link rel="stylesheet" href="./CSS/base.css">
+  <link rel="stylesheet" href="./CSS/main.css">
+  <link rel="stylesheet" href="./CSS/response.css">
+  <title>ブランド名</title>
+</head>
+<body>
+
+
+<!-- Logo Intro -->
+<div class="logoIntro">
+  <div class="waLogo">
+    <span class="bar v1"></span>
+    <span class="bar s1"></span>
+    <span class="bar vMid"></span>
+    <span class="bar s2"></span>
+    <span class="bar s3"></span>
+    <span class="bar v2"></span>
+  </div>
+  <div class="waText">
+    <p class="waTextTop">WA</p>
+    <p class="waTextUnder">Co.,Ltd</p>
+  </div>
+</div>
+
+<!-- Header Menu -->
+<header class="siteHeader">
+  <a class="brand" href="#">
+    <span class="brandMark">WA</span>
+    <span class="brandSub">Co.,Ltd</span>
+  </a>
+
+  <!-- ① 状態（ON/OFF）を持つスイッチ -->
+  <input type="checkbox" id="menuToggle" class="menuToggle" />
+
+  <!-- ② ボタン：labelにして checkbox を切り替える -->
+  <label class="menuBtn" for="menuToggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </label>
+
+  <!-- ③ メニュー画面（checkboxがONのとき出す） -->
+  <div class="menuOverlay" id="menuOverlay" aria-hidden="true">
+
+    <!-- 背景タップで閉じる（label） -->
+    <label class="menuBackdrop" for="menuToggle" aria-label="Close menu"></label>
+
+    <!-- パネル本体 -->
+    <div class="menuPanel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="menuTop">
+        <div class="menuKicker">Menu</div>
+
+        <!-- ×で閉じる（label） -->
+        <label class="menuClose" for="menuToggle" aria-label="Close menu">
+          <span></span><span></span>
+        </label>
+      </div>
+
+      <nav class="menuNav" aria-label="Primary">
+        <a href="" class="menuLink">
+          <span class="menuLinkLabel">Recruit</span>
+          <span class="menuLinkMeta">Join the team</span>
+        </a>
+
+        <a href="" class="menuLink">
+          <span class="menuLinkLabel">Contact</span>
+          <span class="menuLinkMeta">Get in touch</span>
+        </a>
+      </nav>
+
+      <div class="menuFooter">
+        <span class="menuHint">Tap outside to close</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- <section class="hero">
+  <img class="heroImg" src="pic/top_moviem.png" alt="">
+</section> -->
+<section class="heroFade" aria-label="Top visuals">
+  <img class="heroFade__img is-1" src="./pic/brandB.png" alt="">
+  <img class="heroFade__img is-2" src="./pic/brandA.png" alt="">
+</section>
+
+
+
+
+<!-- Vision -->
+<section class="vision reveal">
+  <h1 class="subTitle">VISION</h1>
+  <p class="visionEn">
+    In a constantly changing world,<br>
+    we create new perspectives.
+  </p>
+
+  <p class="visionJa">
+    たとえ小さくても、<br>
+    既存の価値観を揺さぶる想像力で、<br>
+    ユーザーの感情に触れる世界をつくる。
+  </p>
+</section>
+
+<!-- Brands -->
+<!-- <section class="brands reveal">
+  <h2 class="subTitle">BRANDS</h2>
+  <div class="brandList">
+    <article class="brandItem">
+      <h3>BRAND A</h3>
+      <img src="pic/brandA.png" alt="">
+      <p class="brandDesc">
+        日常に溶け込みながらも<br>少しだけ価値観をずらすデザイン。
+      </p>
+      <ul class="brandLinks">
+        <li><a href="" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="" target="_blank" rel="noopener">ZOZO</a></li>
+        <li><a href="" target="_blank" rel="noopener">Official EC</a></li>
+      </ul>
+    </article>
+</section>
+
+<section class="brands reveal"> -->
+    <!-- Brand 2 -->
+    <!-- <article class="brandItem">
+      <h3>BRAND B</h3>
+      <img src="pic/brandB.png" alt="">
+      <p class="brandDesc">
+        素材とシルエットに焦点を当てた<br>静かな存在感のあるプロダクト。
+      </p>
+      <ul class="brandLinks">
+        <li><a href="" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="" target="_blank" rel="noopener">ZOZO</a></li>
+        <li><a href="" target="_blank" rel="noopener">Official EC</a></li>
+      </ul>
+    </article>
+  </div>
+</section> -->
+<section class="brands reveal" aria-label="Brands">
+  <h2 class="subTitle">BRANDS</h2>
+
+  <div class="brandSnap">
+    <article class="brandCard">
+      <h3>BRAND A</h3>
+      <img src="./pic/brandA.png" alt="">
+      <p class="brandDesc">日常に溶け込みながらも<br>少しだけ価値観をずらすデザイン。</p>
+      <ul class="brandLinks">
+        <li><a href="" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="" target="_blank" rel="noopener">ZOZO</a></li>
+        <li><a href="" target="_blank" rel="noopener">Official EC</a></li>
+      </ul>
+    </article>
+
+    <article class="brandCard">
+      <h3>BRAND B</h3>
+      <img src="./pic/brandB.png" alt="">
+      <p class="brandDesc">素材とシルエットに焦点を当てた<br>静かな存在感のあるプロダクト。</p>
+      <ul class="brandLinks">
+        <li><a href="" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="" target="_blank" rel="noopener">ZOZO</a></li>
+        <li><a href="" target="_blank" rel="noopener">Official EC</a></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+
+<!-- Business -->
+<section class="business reveal">
+  <h2 class="subTitle">BUSINESS</h2>
+  <ul class="businessList">
+    <li>アパレルブランドの企画・製造・販売</li>
+    <li>ECサイトの運営・管理</li>
+    <li>ビジュアル・クリエイティブ制作</li>
+    <li>ブランドコンサルティング</li>
+  </ul>
+</section>
+
+<!-- Group Companies -->
+<section class="group reveal">
+  <h2 class="subTitle">GROUP</h2>
+
+  <ul class="groupList">
+    <li>
+      <h3 class="groupName">GROUP COMPANY A</h3>
+      <a href="" target="_blank" rel="noopener" class="official-link">Official Site</a>
+    </li>
+    <li>
+      <h3 class="groupName">GROUP COMPANY B</h3>
+      <a href="" target="_blank" rel="noopener" class="official-link">Official Site</a>
+    </li>
+  </ul>
+</section>
+
+<!-- Company -->
+<section class="company reveal">
+  <h2 class="subTitle">COMPANY</h2>
+
+  <dl class="companyInfo">
+    <div>
+      <dt>会社名</dt>
+      <dd>WA Co.,Ltd</dd>
+    </div>
+    <div>
+      <dt>所在地</dt>
+      <dd>
+        〒000-0000<br>
+        東京都○○区○○ 0-0-0
+      </dd>
+    </div>
+    <div>
+      <dt>設立</dt>
+      <dd>20XX年</dd>
+    </div>
+    <div>
+      <dt>事業内容</dt>
+      <dd>アパレル事業 / EC事業 / クリエイティブ事業</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- Contact -->
+<section class="container reveal">
+  <ul class="ContactFlex">
+    <li><a href="" class="listbutton" data-label="Recruit">Recruit</a></li>
+    <li><a href="" class="listbutton" data-label="Contact">Contact</a></li>
+  </ul>      
+</section>
+  
+</body>
+</html>
