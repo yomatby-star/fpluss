@@ -1,32 +1,154 @@
-/* ----------
-GROUP 
-------------*/
-.groupList li {
-  padding: 0 0 40px 0;
-}
-.official-link {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #111;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 4px;
-}
-.official-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #111;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-.official-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
+/* ==========================
+   group.css
+   ========================== */
+
+   .group{
+    position: relative;
+    overflow-x: clip;
+  }
+  @supports not (overflow: clip){
+    .group{ overflow-x: hidden; }
+  }
+  
+  /* リスト全体をカード列に */
+  .groupList{
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    gap: 14px;
+  }
+  
+  /* 1社 = 1カード */
+  .groupList li{
+    position: relative;
+    border-radius: 22px;
+    padding: 18px 16px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow:
+      0 18px 50px rgba(0,0,0,.25),
+      inset 0 1px 0 rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    isolation: isolate;
+  }
+  
+  /* うっすらグラデ枠 */
+  .groupList li::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+      rgba(184,255,106,.18),
+      rgba(122,92,255,.18),
+      rgba(255,255,255,.10)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: .9;
+    z-index: 0;
+    pointer-events:none;
+  }
+  
+  /* 右上に“矢印”っぽいアクセント（クリック誘導） */
+  .groupList li::after{
+    content:"↗";
+    position:absolute;
+    right: 14px;
+    top: 14px;
+    font-size: 16px;
+    letter-spacing: .06em;
+    opacity: .35;
+    transform: translateY(0);
+    transition: transform .22s ease, opacity .22s ease;
+    z-index: 1;
+    pointer-events:none;
+  }
+  
+  /* 会社名 */
+  .groupName{
+    margin: 0 0 10px;
+    font-size: 14px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .9;
+  }
+  
+  /* リンク：ピルではなく“行動ボタン”っぽく */
+  .official-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  
+    color: rgba(255,255,255,.86);
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  
+    transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+  }
+  
+  /* aの後ろに小さな矢印（押したくなる） */
+  .official-link::after{
+    content:"→";
+    opacity: .7;
+    transform: translateX(0);
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  
+  /* hoverできる環境だけ */
+  @media (hover:hover){
+    .groupList li:hover{
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.22);
+      box-shadow:
+        0 24px 70px rgba(0,0,0,.32),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    }
+    .groupList li:hover::after{
+      opacity: .55;
+      transform: translateY(-1px);
+    }
+    .official-link:hover{
+      transform: translateY(-2px);
+      border-color: rgba(184,255,106,.25);
+      background: linear-gradient(180deg, rgba(184,255,106,.10), rgba(122,92,255,.06));
+    }
+    .official-link:hover::after{
+      transform: translateX(3px);
+      opacity: .9;
+    }
+  }
+  
+  /* タップ時 */
+  .official-link:active{ transform: translateY(1px); }
+  
+  /* キーボード操作（アクセシビリティ） */
+  .official-link:focus-visible{
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(184,255,106,.28);
+  }
+  
+  /* PCで少し横並びも可能に（必要なら） */
+  @media (min-width: 760px){
+    .groupList{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  

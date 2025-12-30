@@ -22,11 +22,17 @@ body {
     radial-gradient(520px 380px at 85% 20%, rgba(184,255,106,.05), transparent 62%),
     radial-gradient(700px 520px at 55% 90%, rgba(255,255,255,.03), transparent 70%),
     linear-gradient(180deg, var(--bg0), var(--bg1)); */
-  background:
+  /* background:
     radial-gradient(600px 420px at 18% 10%, rgba(122,92,255,.14), transparent 60%),
     radial-gradient(520px 380px at 85% 20%, rgba(184,255,106,.08), transparent 62%),
     radial-gradient(700px 520px at 55% 90%, rgba(255,255,255,.04), transparent 70%),
+    linear-gradient(180deg, var(--bg0), var(--bg1)); */
+  background:
+    radial-gradient(600px 420px at 18% 10%, rgba(122,92,255,.08), transparent 60%),
+    radial-gradient(520px 380px at 85% 20%, rgba(184,255,106,.04), transparent 62%),
+    radial-gradient(700px 520px at 55% 90%, rgba(255,255,255,.03), transparent 70%),
     linear-gradient(180deg, var(--bg0), var(--bg1));
+  
   color: var(--color-text);
   font-family: var(--font-main);
   line-height: var(--line-height-base);

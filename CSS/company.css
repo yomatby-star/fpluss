@@ -1,0 +1,116 @@
+/* ==========================
+   company.css
+   ========================== */
+
+   .company{
+    position: relative;
+    overflow-x: clip;
+  }
+  @supports not (overflow: clip){
+    .company{ overflow-x: hidden; }
+  }
+  
+  /* 情報カード（dl全体） */
+  .companyInfo{
+    margin: 18px 0 0;
+    padding: 18px 16px;
+    border-radius: 26px;
+  
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow:
+      0 22px 70px rgba(0,0,0,.28),
+      inset 0 1px 0 rgba(255,255,255,.08);
+  
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  
+    display: grid;
+    gap: 12px;
+  
+    position: relative;
+    isolation: isolate;
+  }
+  
+  /* うっすらグラデ枠（ブランド/グループと統一感） */
+  .companyInfo::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+      rgba(184,255,106,.14),
+      rgba(122,92,255,.16),
+      rgba(255,255,255,.10)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: .9;
+    z-index: 0;
+    pointer-events:none;
+  }
+  
+  /* 中身を上へ */
+  .companyInfo > *{ position: relative; z-index: 1; }
+  
+  /* 1行（div）＝1項目 */
+  .companyInfo > div{
+    display: grid;
+    grid-template-columns: 92px 1fr; /* SPはラベル固定幅 */
+    gap: 10px;
+    padding: 12px 10px;
+    border-radius: 18px;
+  
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid rgba(255,255,255,.10);
+  }
+  
+  /* ラベル（dt） */
+  .companyInfo dt{
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .70;
+    margin: 0;
+  }
+  
+  /* 値（dd） */
+  .companyInfo dd{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: .06em;
+    opacity: .90;
+  }
+  
+  /* 住所のbrが詰まりすぎる場合の微調整 */
+  .companyInfo dd br{ content:""; display:block; margin-bottom: 6px; }
+  
+  /* PCは2カラム化で“資料感” */
+  @media (min-width: 760px){
+    .companyInfo{
+      padding: 22px 20px;
+      gap: 14px;
+    }
+    .companyInfo > div{
+      grid-template-columns: 120px 1fr;
+      padding: 14px 14px;
+    }
+  }
+  
+  /* さらに広い場合は2列レイアウト（情報が増えた時に綺麗） */
+  @media (min-width: 980px){
+    .companyInfo{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  /* motion reduce */
+  @media (prefers-reduced-motion: reduce){
+    .companyInfo, .companyInfo > div{ transition: none; }
+  }
+  
