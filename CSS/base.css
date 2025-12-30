@@ -2,63 +2,56 @@
    base.css
    ========================== */
 
-/* ルート変数 */
+/* ルート変数（全体共通） */
 :root {
-  /* --color-bg: #19121cb9; */
-  --color-bg: #58535A;
   --color-text: #fff;
-  --color-accent: #00ffcc;
-
   --font-main: "Helvetica Neue", Arial, sans-serif;
-
   --line-height-base: 1.7;
+
+  /* 全体背景用（Brandsで使ってたやつを全体へ） */
+  --bg0: #06040a;
+  --bg1: #0b0812;
 }
 
-/* body 基本設定 */
+/* body 基本設定（全体背景をここで作る） */
+html, body { height: 100%; }
+
 body {
-  background-color: var(--color-bg);
+  /* background:
+    radial-gradient(600px 420px at 18% 10%, rgba(122,92,255,.08), transparent 60%),
+    radial-gradient(520px 380px at 85% 20%, rgba(184,255,106,.05), transparent 62%),
+    radial-gradient(700px 520px at 55% 90%, rgba(255,255,255,.03), transparent 70%),
+    linear-gradient(180deg, var(--bg0), var(--bg1)); */
+  background:
+    radial-gradient(600px 420px at 18% 10%, rgba(122,92,255,.14), transparent 60%),
+    radial-gradient(520px 380px at 85% 20%, rgba(184,255,106,.08), transparent 62%),
+    radial-gradient(700px 520px at 55% 90%, rgba(255,255,255,.04), transparent 70%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
   color: var(--color-text);
   font-family: var(--font-main);
   line-height: var(--line-height-base);
   letter-spacing: 0.04em;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 変な横スライドの保険（全体で一発封じ） */
+  overflow-x: hidden;
 }
+
 
 /* 共通テキスト */
-p {
-  font-size: 16px;
-}
+p { font-size: 16px; }
 
 /* 見出し（あとで上書き前提） */
-h1 {
-  font-size: 48px;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: 500;
-}
+h1 { font-size: 48px; font-weight: 700; }
+h2 { font-size: 32px; font-weight: 600; }
+h3 { font-size: 24px; font-weight: 500; }
 
 /* セクション余白 */
-section {
-  padding: 120px 80px;
-}
+section { padding: 120px 80px; }
 
-/* PC / SP切り替え用（あとで拡張） */
+/* SP */
 @media (max-width: 768px) {
-  section {
-    padding: 80px 24px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
+  section { padding: 80px 24px; }
+  h1 { font-size: 36px; }
 }

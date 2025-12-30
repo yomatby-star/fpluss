@@ -1,0 +1,108 @@
+/* -----------
+CONTACT 
+---------------*/
+/* 右下に浮かせる：アパレルLPの“フローティング導線” */
+.ContactFlex{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* ちょい斜めで“変わった”感 */
+  transform: rotate(-2deg);
+}
+/* ベース：ガラスっぽいピル */
+.listbutton{
+  --bg: rgba(255,255,255,.65);
+  --bd: rgba(0,0,0,.16);
+  --tx: #111;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: var(--tx);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  transition: transform .35s ease, box-shadow .35s ease, background .35s ease, border-color .35s ease;
+  overflow: hidden;
+}
+/* ラベルを“二重化”して不思議なズレ演出 */
+.listbutton::before{
+  content: attr(data-label);
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-2px);
+  opacity: .0;
+  letter-spacing: .32em;
+  font-size: 10px;
+  color: rgba(17,17,17,.45);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+/* ホバーで伸びる＆矢印が出る */
+.listbutton::after{
+  content: "↗";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  font-size: 14px;
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+.listbutton:hover{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+  background: rgba(255,255,255,.78);
+  border-color: rgba(0,0,0,.28);
+  padding-right: 36px; /* 矢印分の余白 */
+}
+.listbutton:hover::after{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.listbutton:hover::before{
+  opacity: 1;
+  transform: translateY(-50%) translateX(6px);
+}
+/* 2つ目だけ“逆”のニュアンスにしてアシンメトリー感 */
+.ContactFlex li:nth-child(2) .listbutton{
+  --bg: rgba(17,17,17,.72);
+  --bd: rgba(255,255,255,.22);
+  --tx: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+.ContactFlex li:nth-child(2) .listbutton::before{
+  color: rgba(255,255,255,.45);
+}
+.ContactFlex li:nth-child(2) .listbutton:hover{
+  background: rgba(17,17,17,.82);
+  border-color: rgba(255,255,255,.36);
+}
+/* モバイルは縦並び＋回転を弱める */
+@media (max-width: 600px){
+  .ContactFlex{
+    /* right: 0;
+    bottom: 14px;
+    flex-direction: column;
+    align-items: flex-end;
+    transform: rotate(-1deg); */
+    display:  none;
+  }
+}

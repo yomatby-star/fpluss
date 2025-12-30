@@ -1,0 +1,66 @@
+/* Movieーーーーーー */ 
+.pad {
+  padding: 120px 0;
+  max-width: 520px;
+}
+
+.heroFade{
+  --hold: 3s;   /* 1枚あたりの“表示時間” */
+  --fade: 1.2s; /* フェード時間（うっすら） */
+  /* 1周の合計： (hold+fade) × 2 */
+  --cycle: calc((var(--hold) + var(--fade)) * 2);
+  position: relative;
+  height: 100vh;      /* 必要なら min(76svh,720px) にしてOK */
+  overflow: hidden;
+  border-radius: 24px;
+  background: #111;   /* 余白が出た時の保険 */
+  margin: 0 0 40px;
+}
+
+
+/* 2枚を重ねる */
+.heroFade__img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* 全面に見せたい場合 */
+  /* background-color: #3f3f3f; */
+  display: block;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* 画像1：最初に表示 */
+.heroFade__img.is-1{
+  animation: fade1 var(--cycle) ease-in-out infinite;
+}
+/* 画像2：少し遅れて表示 */
+.heroFade__img.is-2{
+  animation: fade2 var(--cycle) ease-in-out infinite;
+}
+
+/* 1枚目：3秒表示 → 1.2秒で消える → しばらく非表示 → 1.2秒で戻る */
+@keyframes fade1{
+  0%   { opacity: 1; }
+  37.5%{ opacity: 1; }  /* 3s / 8s = 37.5% */
+  52.5%{ opacity: 0; }  /* (3s+1.2s) / 8s = 52.5% */
+  87.5%{ opacity: 0; }  /* 2枚目の表示中 */
+  100% { opacity: 1; }  /* 戻りフェード */
+}
+/* 2枚目：最初は非表示 → 1.2秒で出る → 3秒表示 → 1.2秒で消える */
+@keyframes fade2{
+  0%   { opacity: 0; }
+  37.5%{ opacity: 0; }  /* 1枚目ホールド中 */
+  52.5%{ opacity: 1; }  /* フェードで出る */
+  87.5%{ opacity: 1; }  /* 3秒ホールド */
+  100% { opacity: 0; }  /* 戻りフェードで消える */
+}
+
+
+/* 動きが苦手な人向け */
+@media (prefers-reduced-motion: reduce){
+  .heroFade__img{ animation: none; }
+  .heroFade__img.is-1{ opacity: 1; }
+  .heroFade__img.is-2{ opacity: 0; }
+}

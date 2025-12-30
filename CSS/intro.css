@@ -1,0 +1,223 @@
+/* モバイル対応 */
+/* 共通flex */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================
+   ロゴイントロ全体
+========================= */
+.logoIntro {
+  position: fixed;
+  inset: 0;
+  background: #19121cb9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: introOut 0.8s ease forwards;
+  animation-delay: 3.2s;
+}
+@keyframes introOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* =========================
+   ロゴ本体
+========================= */
+.waLogo {
+  position: relative;
+  width: 260px;
+  height: 140px;
+  transform: translateX(10px);
+}
+
+/* =========================
+   共通バー
+========================= */
+.bar {
+  position: absolute;
+  width: 34px;
+  height: 160px;
+  background: #ece7e7;
+  opacity: 0;
+  filter: blur(6px);
+
+  animation-duration: 1.4s;
+  animation-timing-function: cubic-bezier(0.77,0,0.175,1);
+  animation-fill-mode: forwards;
+}
+
+.bar::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid rgba(86,81,81,0.6);
+  pointer-events: none;
+}
+
+/* =========================
+   初期位置（バラバラ）
+========================= */
+.v1 {
+  left: -30vw;
+  top: -20vh;
+  transform: rotate(-30deg) scale(0.6);
+  animation-name: v1in;
+  animation-delay: 0.1s;
+}
+
+.s1 {
+  left: -10vw;
+  top: 30vh;
+  transform: rotate(-20deg) scale(0.6) skewX(-26deg);
+  animation-name: s1in;
+  animation-delay: 0.25s;
+  z-index: 1;
+}
+
+.vMid {
+  left: 10vw;
+  top: -40vh;
+  transform: rotate(10deg) scale(0.5);
+  animation-name: vMidIn;
+  animation-delay: 0.35s;
+}
+
+.s2 {
+  left: 20vw;
+  top: 35vh;
+  transform: rotate(25deg) scale(0.6) skewX(-26deg);
+  animation-name: s2in;
+  animation-delay: 0.45s;
+}
+
+.s3 {
+  left: -25vw;
+  top: -35vh;
+  transform: rotate(-15deg) scale(0.6) skewX(-26deg);
+  animation-name: s3in;
+  animation-delay: 0.55s;
+  z-index: 1;
+}
+
+.v2 {
+  left: 40vw;
+  top: 10vh;
+  transform: rotate(30deg) scale(0.7);
+  animation-name: v2in;
+  animation-delay: 0.65s;
+}
+
+/* =========================
+   アニメーション（最終形統一）
+========================= */
+@keyframes v1in {
+  to {
+    left: 0;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes s1in {
+  70% {
+    left: 48px;
+    top: -6px;
+    opacity: 1;
+  }
+  to {
+    left: 40px;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1) skewX(-26deg);
+  }
+}
+
+@keyframes vMidIn {
+  to {
+    left: 80px;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes s2in {
+  to {
+    left: 120px;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1) skewX(-26deg);
+  }
+}
+
+@keyframes s3in {
+  to {
+    left: 156px;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1) skewX(-26deg);
+  }
+}
+
+@keyframes v2in {
+  to {
+    left: 200px;
+    top: 0;
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(0) scale(1);
+  }
+}
+
+/* =========================
+   ロゴテキスト
+========================= */
+.waText {
+  width: 250px;
+  display: flex;
+  align-items: baseline;
+  margin-top: 8px;
+  gap: 10px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.waTextTop {
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: -0.05em;
+  opacity: 0;
+  animation: textIn 0.6s ease forwards;
+  animation-delay: 2.1s;
+}
+
+.waTextUnder {
+  font-size: 33px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  margin-right: -0.05em;
+  opacity: 0;
+  animation: textIn 0.6s ease forwards;
+  animation-delay: 2.1s;
+  text-transform: lowercase;
+}
+
+@keyframes textIn {
+  to { opacity: 1; }
+}
