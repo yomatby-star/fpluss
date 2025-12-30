@@ -1,0 +1,192 @@
+/* ==========================
+   recruit.css
+   ========================== */
+
+/* ===== Header ===== */
+.recruitHeader{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.recruitBack{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  text-decoration:none;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.86);
+  opacity: .85;
+  transition: opacity .2s ease, transform .2s ease;
+}
+@media (hover:hover){
+  .recruitBack:hover{
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+.recruitBack:active{ transform: translateY(1px); }
+
+.recruitTag{
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+/* ===== Hero ===== */
+.recruitHero{
+  padding: 24px 24px 10px;
+}
+
+.recruitTitle{
+  margin: 0 0 14px;
+  font-size: clamp(44px, 11vw, 96px);
+  letter-spacing: .18em;
+  opacity: .9;
+}
+
+.recruitLead{
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: .08em;
+  opacity: .78;
+}
+
+/* ===== Section ===== */
+.recruitSection{
+  padding: 40px 24px 0;
+}
+
+/* ===== Position list ===== */
+.positionList{
+  list-style:none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+/* 1職種カード */
+.positionCard{
+  border-radius: 22px;
+  padding: 16px 14px;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* hoverできる端末のみ */
+@media (hover:hover){
+  .positionCard:hover{
+    transform: translateY(-4px);
+    box-shadow:
+      0 24px 70px rgba(0,0,0,.32),
+      inset 0 1px 0 rgba(255,255,255,.10);
+    border-color: rgba(255,255,255,.22);
+  }
+}
+
+.positionName{
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .92;
+}
+
+.positionDesc{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: .06em;
+  opacity: .78;
+}
+
+/* ===== CTA ===== */
+.recruitCta{
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.recruitButton{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  text-decoration:none;
+
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.88);
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.04)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+@media (hover:hover){
+  .recruitButton:hover{
+    transform: translateY(-2px);
+    border-color: rgba(184,255,106,.28);
+    background: linear-gradient(
+      180deg,
+      rgba(184,255,106,.12),
+      rgba(122,92,255,.08)
+    );
+  }
+}
+.recruitButton:active{ transform: translateY(1px); }
+
+.recruitNote{
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .08em;
+  opacity: .55;
+}
+
+/* ===== PC ===== */
+@media (min-width: 760px){
+  .recruitHero{
+    padding: 32px 80px 10px;
+  }
+  .recruitSection{
+    padding: 50px 80px 0;
+  }
+  .positionList{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===== motion reduce ===== */
+@media (prefers-reduced-motion: reduce){
+  .positionCard,
+  .recruitButton{
+    transition: none;
+  }
+}
